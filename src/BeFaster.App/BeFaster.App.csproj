@@ -50,6 +50,9 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -61,6 +64,8 @@
   <ItemGroup>
     <Compile Include="SendCommandToServer.cs" />
     <Compile Include="Solutions\CHK\CheckoutSolution.cs" />
+    <Compile Include="Solutions\CHK\Item.cs" />
+    <Compile Include="Solutions\CHK\SpecialOffers.cs" />
     <Compile Include="Solutions\FIZ\FizzBuzzSolution.cs" />
     <Compile Include="Solutions\HLO\HelloSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

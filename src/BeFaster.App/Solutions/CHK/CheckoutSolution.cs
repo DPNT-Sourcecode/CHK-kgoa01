@@ -1,6 +1,7 @@
 ﻿using BeFaster.Runner.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace BeFaster.App.Solutions.CHK
 {
@@ -15,6 +16,8 @@ namespace BeFaster.App.Solutions.CHK
             {
                 return -1;
             }
+
+            return 0;
         }
 
         public List<Item> StartShop()
@@ -35,6 +38,23 @@ namespace BeFaster.App.Solutions.CHK
                 new SpecialOffers(items[0], 3, 130),
                 new SpecialOffers(items[1], 2, 45),
             };
+        }
+
+        private static (string,int) ParseSkus(string skus)
+        {
+            string pattern = @"^(\d+)([A-Za-z])$";
+
+            var regex = new Regex(pattern);
+
+            Match match = regex.Match(skus);
+
+            if (match.Success)
+            {
+                int quantity = int.Parse(match.Groups[1].Value);
+                string item = match.Groups[2].Value;
+
+                return (item, quantity);
+            }
         }
     }
 }
