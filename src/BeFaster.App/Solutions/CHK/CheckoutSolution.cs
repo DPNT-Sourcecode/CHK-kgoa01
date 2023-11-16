@@ -4,10 +4,12 @@ using System.Collections.Generic;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    public static class CheckoutSolution
+    public class CheckoutSolution
     {
-        public static int ComputePrice(string skus)
+        public int ComputePrice(string skus)
         {
+            var items = StartShop();
+
             if (String.IsNullOrEmpty(skus))
             {
                 return -1;
@@ -16,13 +18,20 @@ namespace BeFaster.App.Solutions.CHK
 
         public List<Item> StartShop()
         {
-            return new List<Item> 
-            { 
+            return new List<Item>
+            {
                 new Item("A", 50),
                 new Item("B", 30),
                 new Item("C", 20),
                 new Item("D", 15)
             };
+        }
+
+        public SpecialOffers StartSpecialOffers(Item itemOffer, int quantity, int price)
+        {
+            return new SpecialOffers(itemOffer, quantity, price);
+        }
     }
 }
+
 

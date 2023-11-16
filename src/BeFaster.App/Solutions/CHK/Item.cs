@@ -9,12 +9,13 @@ namespace BeFaster.App.Solutions.CHK
     public class Item
     {
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
-        public Item(string name, decimal price)
+        public Item(string name, int price)
         {
             Name = name;
             Price = price;
         }
     }
 }
+

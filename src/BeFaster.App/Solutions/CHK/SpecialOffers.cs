@@ -10,13 +10,14 @@ namespace BeFaster.App.Solutions.CHK
     {
         public Item ItemOffer { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }
+        public int TotalPrice { get; set; }
 
-        public SpecialOffers(Item itemOffer, int quantity, decimal price)
+        public SpecialOffers(Item itemOffer, int quantity, int price)
         {
             ItemOffer = itemOffer;
             Quantity = quantity;
-            Price = price;
+            TotalPrice = price;
         }
     }
 }
+
