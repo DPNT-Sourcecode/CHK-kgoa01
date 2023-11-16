@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    public class CheckoutSolution
+    public static class CheckoutSolution
     {
-        public int ComputePrice(string skus)
+        public static int ComputePrice(string skus)
         {
             var items = StartShop();
             var specialOffers = StartSpecialOffers(items);
@@ -97,7 +97,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-

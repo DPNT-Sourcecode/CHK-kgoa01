@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    public class SpecialOffers
+    public class SpecialOffer
     {
         public Item ItemOffer { get; set; }
         public int Quantity { get; set; }
         public int TotalPrice { get; set; }
 
-        public SpecialOffers(Item itemOffer, int quantity, int price)
+        public SpecialOffer(Item itemOffer, int quantity, int price)
         {
             ItemOffer = itemOffer;
             Quantity = quantity;

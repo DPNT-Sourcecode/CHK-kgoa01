@@ -41,8 +41,33 @@ namespace UnitTestProject1
             //assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void ShouldReturnPriceWithSpecialOffer()
+        {
+            //Arrange
+            string skus = "5A";
+            int expected = 230;
+
+            //act
+            var result = cs.ComputePrice(skus);
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShouldReturnPriceWithoutSpecialOffer()
+        {
+            //Arrange
+            string skus = "2A";
+            int expected = 100;
+
+            //act
+            var result = cs.ComputePrice(skus);
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
-
-
-
