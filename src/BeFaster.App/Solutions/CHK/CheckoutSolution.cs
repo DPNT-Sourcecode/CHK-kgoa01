@@ -1,6 +1,7 @@
 ﻿using BeFaster.Runner.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace BeFaster.App.Solutions.CHK
@@ -12,7 +13,19 @@ namespace BeFaster.App.Solutions.CHK
             var items = StartShop();
             var specialOffers = StartSpecialOffers(items);
 
-            
+            string name;
+            int quantity;
+
+            try
+            {
+                (name, quantity) = ParseSkus(skus);
+            }
+            catch 
+            {
+                return -1;
+            }
+
+            var item = items.FirstOrDefault();
 
             return 0;
         }
@@ -39,7 +52,7 @@ namespace BeFaster.App.Solutions.CHK
 
         private static (string,int) ParseSkus(string skus)
         {
-            if (String.IsNullOrEmpty(skus))
+            if (String.IsNullOrEmpty(skus) || String.IsNullOrWhiteSpace(skus))
             {
                 throw new ArgumentException("Invalid input.");
             }
@@ -64,7 +77,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
