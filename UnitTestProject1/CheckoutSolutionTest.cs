@@ -21,6 +21,19 @@ namespace UnitTestProject1
             string skus = "InvalidInput";
             int expected = -1;
             
+            //act
+            var result = cs.ComputePrice(skus);
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShouldFailWhenItemIsNotPresent()
+        {
+            //Arrange
+            string skus = "5Z";
+            int expected = -1;
 
             //act
             var result = cs.ComputePrice(skus);
@@ -30,5 +43,6 @@ namespace UnitTestProject1
         }
     }
 }
+
 
 
