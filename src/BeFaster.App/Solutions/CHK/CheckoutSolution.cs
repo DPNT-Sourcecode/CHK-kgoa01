@@ -50,7 +50,7 @@ namespace BeFaster.App.Solutions.CHK
             return item.Price * quantity;
         }
 
-        public List<Item> StartShop()
+        private List<Item> StartShop()
         {
             return new List<Item>
             {
@@ -61,7 +61,7 @@ namespace BeFaster.App.Solutions.CHK
             };
         }
 
-        public List<SpecialOffer> StartSpecialOffers(List<Item> items)
+        private List<SpecialOffer> StartSpecialOffers(List<Item> items)
         {
             return new List<SpecialOffer>()
             {
@@ -97,5 +97,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
