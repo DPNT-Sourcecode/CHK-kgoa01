@@ -16,17 +16,7 @@ namespace BeFaster.App.Solutions.CHK
             Name = name;
             Price = price;
         }
-
-        public List<Item> StartShop()
-        {
-            return new List<Item>
-            {
-                new Item("A", 50),
-                new Item("B", 30),
-                new Item("C", 20),
-                new Item("D", 15)
-            };
-        }
     }
 }
+
 

@@ -12,8 +12,6 @@ namespace UnitTestProject1
     [TestClass]
     public class CheckoutSolutionTest
     {
-        CheckoutSolution cs = new CheckoutSolution();
-
         [TestMethod]
         public void ShouldFailWhenInputIsInvalid()
         {
@@ -22,7 +20,7 @@ namespace UnitTestProject1
             int expected = -1;
             
             //act
-            var result = cs.ComputePrice(skus);
+            var result = CheckoutSolution.ComputePrice(skus);
 
             //assert
             Assert.AreEqual(expected, result);
@@ -36,7 +34,7 @@ namespace UnitTestProject1
             int expected = -1;
 
             //act
-            var result = cs.ComputePrice(skus);
+            var result = CheckoutSolution.ComputePrice(skus);
 
             //assert
             Assert.AreEqual(expected, result);
@@ -50,7 +48,7 @@ namespace UnitTestProject1
             int expected = 230;
 
             //act
-            var result = cs.ComputePrice(skus);
+            var result = CheckoutSolution.ComputePrice(skus);
 
             //assert
             Assert.AreEqual(expected, result);
@@ -64,10 +62,11 @@ namespace UnitTestProject1
             int expected = 100;
 
             //act
-            var result = cs.ComputePrice(skus);
+            var result = CheckoutSolution.ComputePrice(skus);
 
             //assert
             Assert.AreEqual(expected, result);
         }
     }
 }
+

@@ -10,9 +10,9 @@ namespace BeFaster.App.Solutions.CHK
     {
         public static int ComputePrice(string skus)
         {
-            var i = new Item("teste", 1);
-            var items = i.StartShop();
-            var specialOffers = StartSpecialOffers(items);
+            var shopService = new ShopService();
+            var items = shopService.StartShop();
+            var specialOffers = shopService.StartSpecialOffers(items);
 
             string name;
             int quantity;
@@ -33,27 +33,8 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-            return ProcessPrice(item, quantity, specialOffers);
+            return shopService.ProcessPrice(item, quantity, specialOffers);
         }
-
-        private int ProcessPrice(Item item, int quantity, List<SpecialOffer> offers)
-        {
-            var offer = offers.FirstOrDefault(o => o.ItemOffer == item);
-
-            if(offer != null)
-            {
-                int timesOfOffer = quantity / offer.Quantity;
-                int numberItemsNotOffer = quantity % offer.Quantity;
-
-                return timesOfOffer * offer.TotalPrice + numberItemsNotOffer * item.Price;
-            }
-
-            return item.Price * quantity;
-        }
-
-       
-
-        
 
         private static (string,int) ParseSkus(string skus)
         {
@@ -82,4 +63,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
