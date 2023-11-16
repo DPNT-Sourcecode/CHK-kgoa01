@@ -10,7 +10,8 @@ namespace BeFaster.App.Solutions.CHK
     {
         public static int ComputePrice(string skus)
         {
-            var items = StartShop();
+            var i = new Item("teste", 1);
+            var items = i.StartShop();
             var specialOffers = StartSpecialOffers(items);
 
             string name;
@@ -50,25 +51,9 @@ namespace BeFaster.App.Solutions.CHK
             return item.Price * quantity;
         }
 
-        private List<Item> StartShop()
-        {
-            return new List<Item>
-            {
-                new Item("A", 50),
-                new Item("B", 30),
-                new Item("C", 20),
-                new Item("D", 15)
-            };
-        }
+       
 
-        private List<SpecialOffer> StartSpecialOffers(List<Item> items)
-        {
-            return new List<SpecialOffer>()
-            {
-                new SpecialOffer(items[0], 3, 130),
-                new SpecialOffer(items[1], 2, 45),
-            };
-        }
+        
 
         private static (string,int) ParseSkus(string skus)
         {
@@ -97,3 +82,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
