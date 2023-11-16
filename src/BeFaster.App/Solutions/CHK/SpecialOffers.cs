@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    internal class SpecialOffers
+    public class SpecialOffers
     {
         public Item ItemOffer { get; set; }
         public int Quantity { get; set; }
@@ -20,4 +20,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 

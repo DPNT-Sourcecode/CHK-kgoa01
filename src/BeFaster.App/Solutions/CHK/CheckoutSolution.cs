@@ -9,6 +9,7 @@ namespace BeFaster.App.Solutions.CHK
         public int ComputePrice(string skus)
         {
             var items = StartShop();
+            var specialOffers = StartSpecialOffers(items);
 
             if (String.IsNullOrEmpty(skus))
             {
@@ -27,11 +28,16 @@ namespace BeFaster.App.Solutions.CHK
             };
         }
 
-        public SpecialOffers StartSpecialOffers(Item itemOffer, int quantity, int price)
+        public List<SpecialOffers> StartSpecialOffers(List<Item> items)
         {
-            return new SpecialOffers(itemOffer, quantity, price);
+            return new List<SpecialOffers>()
+            {
+                new SpecialOffers(items[0], 3, 130),
+                new SpecialOffers(items[1], 2, 45),
+            };
         }
     }
 }
+
 
 
