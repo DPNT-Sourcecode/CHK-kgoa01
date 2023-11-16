@@ -1,4 +1,5 @@
-﻿using BeFaster.App.Solutions.HLO;
+﻿using BeFaster.App.Solutions.CHK;
+using BeFaster.App.Solutions.HLO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,23 @@ namespace UnitTestProject1
     [TestClass]
     public class CheckoutSolutionTest
     {
+        CheckoutSolution cs = new CheckoutSolution();
+
         [TestMethod]
-        public void ShouldFailWhenInputWhiteSpaceParseSkus()
+        public void ShouldFailWhenInputIsInvalid()
         {
             //Arrange
-            string skus = "2A";
+            string skus = "InvalidInput";
+            int expected = -1;
+            
 
             //act
-            () = ParseSkus(skus);
+            var result = cs.ComputePrice(skus);
 
             //assert
-
+            Assert.AreEqual(expected, result);
         }
     }
 }
+
 
