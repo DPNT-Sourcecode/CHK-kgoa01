@@ -32,9 +32,7 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-
-
-            return 0;
+            return ProcessPrice(item, quantity, specialOffers);
         }
 
         private int ProcessPrice(Item item, int quantity, List<SpecialOffer> offers)
@@ -44,6 +42,9 @@ namespace BeFaster.App.Solutions.CHK
             if(offer != null)
             {
                 int timesOfOffer = quantity / offer.Quantity;
+                int numberItemsNotOffer = quantity % offer.Quantity;
+
+                return timesOfOffer * offer.TotalPrice + numberItemsNotOffer * item.Price;
             }
 
             return item.Price * quantity;
@@ -96,4 +97,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
