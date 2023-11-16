@@ -25,9 +25,28 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-            var item = items.FirstOrDefault();
+            var item = items.FirstOrDefault(x => x.Name.Equals(name));
+
+            if(item == null)
+            {
+                return -1;
+            }
+
+
 
             return 0;
+        }
+
+        private int ProcessPrice(Item item, int quantity, List<SpecialOffer> offers)
+        {
+            var offer = offers.FirstOrDefault(o => o.ItemOffer == item);
+
+            if(offer != null)
+            {
+                int timesOfOffer = quantity / offer.Quantity;
+            }
+
+            return item.Price * quantity;
         }
 
         public List<Item> StartShop()
@@ -41,12 +60,12 @@ namespace BeFaster.App.Solutions.CHK
             };
         }
 
-        public List<SpecialOffers> StartSpecialOffers(List<Item> items)
+        public List<SpecialOffer> StartSpecialOffers(List<Item> items)
         {
-            return new List<SpecialOffers>()
+            return new List<SpecialOffer>()
             {
-                new SpecialOffers(items[0], 3, 130),
-                new SpecialOffers(items[1], 2, 45),
+                new SpecialOffer(items[0], 3, 130),
+                new SpecialOffer(items[1], 2, 45),
             };
         }
 
@@ -77,3 +96,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
