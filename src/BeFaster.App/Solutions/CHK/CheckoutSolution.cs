@@ -12,10 +12,7 @@ namespace BeFaster.App.Solutions.CHK
             var items = StartShop();
             var specialOffers = StartSpecialOffers(items);
 
-            if (String.IsNullOrEmpty(skus))
-            {
-                return -1;
-            }
+            
 
             return 0;
         }
@@ -42,6 +39,11 @@ namespace BeFaster.App.Solutions.CHK
 
         private static (string,int) ParseSkus(string skus)
         {
+            if (String.IsNullOrEmpty(skus))
+            {
+                throw new ArgumentException("Invalid input.");
+            }
+
             string pattern = @"^(\d+)([A-Za-z])$";
 
             var regex = new Regex(pattern);
@@ -55,9 +57,14 @@ namespace BeFaster.App.Solutions.CHK
 
                 return (item, quantity);
             }
+            else
+            {
+                throw new ArgumentException("Invalid input.");
+            }
         }
     }
 }
+
 
 
 
