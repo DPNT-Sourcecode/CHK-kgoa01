@@ -72,10 +72,10 @@ namespace BeFaster.App.Solutions.CHK
 
         private static (string,int) ParseSkus(string skus)
         {
-            if (String.IsNullOrEmpty(skus) || String.IsNullOrWhiteSpace(skus))
+            /*if (String.IsNullOrEmpty(skus) || String.IsNullOrWhiteSpace(skus))
             {
                 throw new ArgumentException("Invalid input.");
-            }
+            }*/
 
             string pattern = @"^(\d+)([A-Za-z])$";
 
@@ -97,6 +97,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
