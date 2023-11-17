@@ -55,7 +55,7 @@ namespace BeFaster.App.Solutions.CHK
 
             if (match.Success)
             {
-                int quantity = int.Parse(match.Groups[1].Value);
+                int quantity = string.IsNullOrEmpty(match.Groups[1].Value) ? 1 : int.Parse(match.Groups[1].Value);
                 string item = match.Groups[2].Value;
 
                 return (item, quantity);
@@ -67,6 +67,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
