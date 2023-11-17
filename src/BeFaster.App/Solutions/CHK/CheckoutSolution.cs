@@ -55,6 +55,20 @@ namespace BeFaster.App.Solutions.CHK
 
             if (match.Success)
             {
+                var items = new Dictionary<char, int>();
+
+                foreach(char it in skus)
+                {
+                    if (items.ContainsKey(it))
+                    {
+                        items[it]++;
+                    }
+                    else
+                    {
+                        items.Add(it, 1);
+                    }
+                }
+
                 int quantity = string.IsNullOrEmpty(match.Groups[1].Value) ? 1 : int.Parse(match.Groups[1].Value);
                 string item = match.Groups[2].Value;
 
@@ -67,3 +81,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
