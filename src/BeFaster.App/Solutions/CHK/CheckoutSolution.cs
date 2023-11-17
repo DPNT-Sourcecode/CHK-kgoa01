@@ -47,7 +47,7 @@ namespace BeFaster.App.Solutions.CHK
                 throw new NullReferenceException("Invalid input.");
             }
 
-            string pattern = @"^(\d*)?([A-Za-z])$";
+            string pattern = @"^[A-Z]$";
 
             var regex = new Regex(pattern);
 
@@ -67,8 +67,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
