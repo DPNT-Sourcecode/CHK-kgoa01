@@ -30,11 +30,17 @@ namespace BeFaster.App.Solutions.CHK
             }
 
             var validatedItems = new Dictionary<Item, int>();
-            var item = itemsStock.FirstOrDefault(x => x.Name.Equals(name));
-
-            if(item == null)
+            
+            foreach(var it in selectedItems)
             {
-                return -1;
+                var item = itemsStock.FirstOrDefault(x => x.Name.Equals(it.Key.ToString()));
+
+                if(item == null)
+                {
+                    return -1;
+                }
+
+                validatedItems.Add(item);
             }
 
             return shopService.ProcessPrice(item, quantity, specialOffers);
@@ -78,6 +84,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
