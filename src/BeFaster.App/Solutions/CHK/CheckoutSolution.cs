@@ -40,10 +40,10 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
 
-                validatedItems.Add(item);
+                validatedItems.Add(item, it.Value);
             }
 
-            return shopService.ProcessPrice(item, quantity, specialOffers);
+            return shopService.ProcessPrice(validatedItems, specialOffers);
         }
 
         private static Dictionary<char,int> ParseSkus(string skus)
@@ -84,6 +84,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
