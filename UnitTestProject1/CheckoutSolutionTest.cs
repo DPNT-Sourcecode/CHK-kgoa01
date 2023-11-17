@@ -27,10 +27,24 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void ShouldFailWhenInputIsEmptyString()
+        {
+            //Arrange
+            string skus = "";
+            int expected = 0;
+
+            //act
+            var result = CheckoutSolution.ComputePrice(skus);
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void ShouldFailWhenItemIsNotPresent()
         {
             //Arrange
-            string skus = "5Z";
+            string skus = "Z";
             int expected = -1;
 
             //act
@@ -44,7 +58,7 @@ namespace UnitTestProject1
         public void ShouldReturnPriceWithSpecialOffer()
         {
             //Arrange
-            string skus = "5A";
+            string skus = "AAAAA";
             int expected = 230;
 
             //act
@@ -58,7 +72,7 @@ namespace UnitTestProject1
         public void ShouldReturnPriceWithoutSpecialOffer()
         {
             //Arrange
-            string skus = "2A";
+            string skus = "AA";
             int expected = 100;
 
             //act
@@ -69,3 +83,4 @@ namespace UnitTestProject1
         }
     }
 }
+

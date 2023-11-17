@@ -28,7 +28,19 @@ namespace BeFaster.App.Solutions.CHK
             };
         }
 
-        public int ProcessPrice(Item item, int quantity, List<SpecialOffer> offers)
+        public int CalculateTotalPrice(Dictionary<Item,int> items, List<SpecialOffer> offers)
+        {
+            int totalPrice = 0;
+
+            foreach(var it in items)
+            {
+                totalPrice += ProcessPriceForItem(it.Key, it.Value, offers);
+            }
+
+            return totalPrice;
+        }
+
+        private int ProcessPriceForItem(Item item, int quantity, List<SpecialOffer> offers)
         {
             var offer = offers.FirstOrDefault(o => o.ItemOffer == item);
 
@@ -44,3 +56,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
