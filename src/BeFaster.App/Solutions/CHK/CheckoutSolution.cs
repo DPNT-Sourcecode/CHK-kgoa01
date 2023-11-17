@@ -29,6 +29,7 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
+            var validatedItems = new Dictionary<Item, int>();
             var item = itemsStock.FirstOrDefault(x => x.Name.Equals(name));
 
             if(item == null)
@@ -77,5 +78,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
