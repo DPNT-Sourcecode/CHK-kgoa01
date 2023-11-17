@@ -11,15 +11,14 @@ namespace BeFaster.App.Solutions.CHK
         public static int ComputePrice(string skus)
         {
             var shopService = new ShopService();
-            var items = shopService.StartShop();
-            var specialOffers = shopService.StartSpecialOffers(items);
+            var itemsStock = shopService.StartShop();
+            var specialOffers = shopService.StartSpecialOffers(itemsStock);
 
-            string name;
-            int quantity;
+            var selectedItems = new Dictionary<char, int>();
 
             try
             {
-                (name, quantity) = ParseSkus(skus);
+                selectedItems = ParseSkus(skus);
             }
             catch(NullReferenceException)
             {
@@ -30,7 +29,7 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-            var item = items.FirstOrDefault(x => x.Name.Equals(name));
+            var item = itemsStock.FirstOrDefault(x => x.Name.Equals(name));
 
             if(item == null)
             {
@@ -40,7 +39,7 @@ namespace BeFaster.App.Solutions.CHK
             return shopService.ProcessPrice(item, quantity, specialOffers);
         }
 
-        private static (string,int) ParseSkus(string skus)
+        private static Dictionary<char,int> ParseSkus(string skus)
         {
             if (String.IsNullOrEmpty(skus) || String.IsNullOrWhiteSpace(skus))
             {
@@ -69,10 +68,7 @@ namespace BeFaster.App.Solutions.CHK
                     }
                 }
 
-                int quantity = string.IsNullOrEmpty(match.Groups[1].Value) ? 1 : int.Parse(match.Groups[1].Value);
-                string item = match.Groups[2].Value;
-
-                return (item, quantity);
+                return items;
             }
             else
             {
@@ -81,4 +77,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
